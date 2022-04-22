@@ -11,15 +11,10 @@ Route::get('/dashboard', function () {
 
     // Fontend Controller Routes
     Route::get('/', [FrontendController::class, 'index'])->name('index');
-    Route::get('new/arrivals', [FrontendController::class, 'newarrivals'])->name('new.arrivals');
-    Route::get('arrivals/details/{id}', [FrontendController::class, 'arrivalsdetails'])->name('arrivals.details');
-    Route::get('shop', [FrontendController::class, 'shop'])->name('shop');
-    Route::get('product/details/{id}', [FrontendController::class, 'productdetails'])->name('product.details');
+    Route::get('our/doctor', [FrontendController::class, 'our_doctor'])->name('our.doctor');
     Route::get('aboutus', [FrontendController::class, 'aboutus'])->name('aboutus');
-    Route::get('contactus', [FrontendController::class, 'contactus'])->name('contactus');
-    Route::get('privacy/policy', [FrontendController::class, 'privacy_policy'])->name('privacy.policy');
-    Route::get('terms/condition', [FrontendController::class, 'terms_condition'])->name('terms.condition');
-    Route::get('payment', [FrontendController::class, 'payment'])->name('payment');
+    // Route::get('contactus', [FrontendController::class, 'contactus'])->name('contactus');
+    Route::get('hospital/service', [FrontendController::class, 'hospital_service'])->name('hospital.service');
     Route::get('form/submit', [FrontendController::class, 'form_submit'])->name('form.submit');
 
 

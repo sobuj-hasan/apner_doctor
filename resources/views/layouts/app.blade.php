@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/font.css') }}">
   <link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
   <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -34,16 +35,16 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="{{ route('aboutus') }}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ourdoctor.html">Our-Doctor</a>
+                            <a class="nav-link" href="{{ route('our.doctor') }}">Our-Doctor</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="service.html">Hospital</a>
+                            <a class="nav-link" href="{{ route('hospital.service') }}">Hospital</a>
                         </li>
 
                         @if (Auth::guest())

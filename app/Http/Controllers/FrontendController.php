@@ -21,24 +21,9 @@ class FrontendController extends Controller
         return view('index');
     }
 
-    public function newarrivals(){
-        $data['new_arrivals'] = NewArrival::where('status', 1)->inRandomOrder()->limit(80)->get();
-        return view('new_arrivals', $data);
-    }
-
-    public function arrivalsdetails(Request $request, $id){
-        $data['singleproduct'] = NewArrival::where('id', $id)->firstOrFail();
-        return view('arrivals_details', $data);
-    }
-
-    public function shop(){
+    public function our_doctor(){
         $data['products'] = Service::where('status', 1)->inRandomOrder()->limit(80)->get();
-        return view('shop', $data);
-    }
-    
-    public function productdetails(Request $request, $id){
-        $data['singleproduct'] = Service::where('id', $id)->firstOrFail();
-        return view('product_details', $data);
+        return view('our_doctors', $data);
     }
 
     public function aboutus(){
@@ -49,16 +34,8 @@ class FrontendController extends Controller
         return view('contactus');
     }
 
-    public function privacy_policy(){
-        return view('privacy_policy');
-    }
-
-    public function terms_condition(){
-        return view('terms_condition');
-    }
-    
-    public function payment(){
-        return view('payment');
+    public function hospital_service(){
+        return view('our_service');
     }
 
     public function form_submit(){
