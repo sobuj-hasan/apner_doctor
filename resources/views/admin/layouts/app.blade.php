@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title> @yield('title') - SexMedicine</title>
+        <title> @yield('title') - Apner Doctor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="" />
         <meta content="Coderthemes" name="author" />
@@ -45,7 +45,7 @@
                 <div class="topbar-left">
                     <a href="{{ route('admin.index') }}" class="logo">
                         <span>
-                            <h4 class="text-white pt-2"><strong>SexMedicine Admin</strong></h4>
+                            <h4 class="text-white pt-2"><strong>Apner-Doctor Admin</strong></h4>
                         </span>
                         <i>
                             <img src="{{ asset('Backend') }}/assets/images/logo_sm.png" alt="" height="28">
@@ -115,7 +115,7 @@
                     <div id="sidebar-menu">
                         <!-- Left Menu Start -->
                         <ul class="metismenu" id="side-menu">
-                            <li class="menu-title">Tolet Book</li>
+                            <li class="menu-title">Apner Doctor</li>
                             <li>
                                 <a href="{{ route('admin.index') }}">
                                     <i class="fi-air-play"></i>  <span> Dashboard </span>
@@ -209,7 +209,7 @@
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
-                    @php echo date('Y'); @endphp © Tolet-Book
+                    @php echo date('Y'); @endphp © Apner-Doctor
                 </footer>
 
             </div>
