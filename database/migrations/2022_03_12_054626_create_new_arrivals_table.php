@@ -16,11 +16,12 @@ class CreateNewArrivalsTable extends Migration
         Schema::create('new_arrivals', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->string('medicine_name')->nullable();
-            $table->string('price')->nullable();
-            $table->string('return_policy')->nullable();
+            $table->string('hospital_name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->longText('image')->nullable();
+            $table->string('image_two')->nullable();
             $table->longText('description')->nullable();
-            $table->string('image')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

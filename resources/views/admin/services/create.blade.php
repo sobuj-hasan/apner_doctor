@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title',' Medicine create')
+@section('title',' Doctor Profile Create')
 @section('content')
 
  <div class="container-fluid">
@@ -9,7 +9,7 @@
                     <h4 class="page-title float-left">Create New</h4>
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="">Admin</a></li>
-                        <li class="breadcrumb-item"><a href="">Create Medicine</a></li>
+                        <li class="breadcrumb-item"><a href="">Create Doctor</a></li>
                     </ol>
 
                     <div class="clearfix"></div>
@@ -22,44 +22,44 @@
             <div class="col-md-12">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Create Medicine</h4>
+                        <h4 class="modal-title">Create Doctor</h4>
                     </div>
                     <form method="POST" action="{{ route('service.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 my-2">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Medicine Name</label>
-                                        <input type="text" class="form-control" id="field-2" placeholder="name" name="medicine_name" value="{{ old('medicine_name'); }}" required>
-                                        @error('medicine_name')
+                                        <label for="field-2" class="control-label">Doctor Name</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="doctor name" name="doctor_name" value="{{ old('doctor_name'); }}" required>
+                                        @error('doctor_name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 my-2">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Medicine Price</label>
-                                        <input type="number" class="form-control" id="field-2" placeholder="price ($)" name="price" value="{{ old('price'); }}" required>
-                                        @error('price')
+                                        <label for="field-2" class="control-label">Contact Number</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="contact number" name="contact_number" value="{{ old('contact_number'); }}" required>
+                                        @error('contact_number')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 my-2">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Return Policy (Days)</label>
-                                        <input type="number" class="form-control" id="field-2" placeholder="return policy (Day)" name="return_policy" value="{{ old('return_policy'); }}" required>
-                                        @error('return_policy')
+                                        <label for="field-2" class="control-label">Doctor Degree</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="doctor degree" name="degree" value="{{ old('degree'); }}" required>
+                                        @error('degree')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="field-1" class="control-label">Medicine Image <span class="text-light"> &nbsp;(Preferable width : 380px Height: 310px)</span></label><br>
+                                <div class="col-md-6 my-2">
+                                    <label for="field-1" class="control-label">Doctor Image <span class="text-light"> &nbsp;(Preferable width : 120px Height: 120px)</span></label><br>
                                     <button type="button" class="btn btn-secondary btn-file">
                                         <input type="file" class="btn-secondary" name="image" />
                                     </button><br>
@@ -67,12 +67,21 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                
-                                <div class="col-md-12">
+
+                                <div class="col-md-6 my-2">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Medicine Description</label>
-                                        <textarea style="height: 220px;" type="text" class="form-control" placeholder="Medicine Description" name="description" required></textarea>
-                                        @error('description')
+                                        <label for="field-2" class="control-label">Education (University or Institute) Name</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="education" name="education" value="{{ old('education'); }}" required>
+                                        @error('education')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 my-2">
+                                    <div class="form-group">
+                                        <label for="field-2" class="control-label">Current Working Hospital Name</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="working hospital" name="working hospital" value="{{ old('working_hospital'); }}" required>
+                                        @error('working_hospital')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>

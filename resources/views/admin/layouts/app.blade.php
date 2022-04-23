@@ -137,17 +137,17 @@
                                 </ul>
                             </li> --}}
                             <li>
-                                <a href="javascript: void(0);"> <i class="fas fa-users-cog"></i> <span>Our Medicine</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript: void(0);"> <i class="fas fa-users-cog"></i> <span>Our Doctors</span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="{{ route('service.index') }}">View All Medicine</a></li>
-                                    <li><a href="{{ route('service.create') }}">Add New Medicine</a></li>
+                                    <li><a href="{{ route('service.index') }}">View All Doctors</a></li>
+                                    <li><a href="{{ route('service.create') }}">Add New Doctor</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript: void(0);"> <i class="fa-solid fa-house-medical"></i> <span>New Arrivals</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript: void(0);"> <i class="fa-solid fa-house-medical"></i> <span>Our Hospitals</span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="{{ route('newarrivals.index') }}">New Arrivals Medicine</a></li>
-                                    <li><a href="{{ route('newarrivals.create') }}">Add New Arrivals</a></li>
+                                    <li><a href="{{ route('newarrivals.index') }}">View All Hospital</a></li>
+                                    <li><a href="{{ route('newarrivals.create') }}">Add New Hospital</a></li>
                                 </ul>
                             </li>
                             <li>

@@ -11,11 +11,12 @@ class Service extends Model
 
     protected $fillable = [
         'user_id',
-        'medicine_name',
-        'price',
-        'return_policy',
+        'doctor_name',
+        'contact_number',
+        'degree',
+        'education',
+        'working_hospital',
         'image',
-        'description',
         'status',
     ];
 

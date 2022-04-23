@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box">
-                    <h4 class="page-title float-left">Create New Arrivals</h4>
+                    <h4 class="page-title float-left">Create New Hospitals</h4>
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="">Admin</a></li>
-                        <li class="breadcrumb-item"><a href="">Create New Arrivals Medicine</a></li>
+                        <li class="breadcrumb-item"><a href="">Create New Hospitals</a></li>
                     </ol>
 
                     <div class="clearfix"></div>
@@ -22,7 +22,7 @@
             <div class="col-md-12">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Create New Arrivals Medicine</h4>
+                        <h4 class="modal-title">Create New Hospitals</h4>
                     </div>
                     <form method="POST" action="{{ route('newarrivals.store') }}" enctype="multipart/form-data">
                         @csrf
@@ -30,9 +30,9 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Medicine Name</label>
-                                        <input type="text" class="form-control" id="field-2" placeholder="name" name="medicine_name" value="{{ old('medicine_name'); }}" required>
-                                        @error('medicine_name')
+                                        <label for="field-2" class="control-label">Hospital Name</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="hospital name" name="hospital_name" value="{{ old('hospital_name'); }}" required>
+                                        @error('hospital_name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -40,9 +40,9 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Medicine Price</label>
-                                        <input type="number" class="form-control" id="field-2" placeholder="price ($)" name="price" value="{{ old('price'); }}" required>
-                                        @error('price')
+                                        <label for="field-2" class="control-label">Phone Number</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="Phone" name="phone" value="{{ old('phone'); }}" required>
+                                        @error('phone')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -50,16 +50,16 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Return Policy (Days)</label>
-                                        <input type="number" class="form-control" id="field-2" placeholder="return policy (Day)" name="return_policy" value="{{ old('return_policy'); }}" required>
-                                        @error('return_policy')
+                                        <label for="field-2" class="control-label">Hospital Address</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="Address" name="address" value="{{ old('address'); }}" required>
+                                        @error('address')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="field-1" class="control-label">Medicine Image <span class="text-light"> &nbsp;(Preferable width : 380px Height: 310px)</span></label><br>
+                                    <label for="field-1" class="control-label">Hospital Image One <span class="text-light"> &nbsp;(Preferable width : 600px Height: 490px)</span></label><br>
                                     <button type="button" class="btn btn-secondary btn-file">
                                         <input type="file" class="btn-secondary" name="image" />
                                     </button><br>
@@ -67,11 +67,21 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+
+                                <div class="col-md-6">
+                                    <label for="field-1" class="control-label">Hospital Image Two <span class="text-light"> &nbsp;(Preferable width : 600px Height: 490px)</span></label><br>
+                                    <button type="button" class="btn btn-secondary btn-file">
+                                        <input type="file" class="btn-secondary" name="image_two" />
+                                    </button><br>
+                                    @error('image_two')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                                 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Medicine Description</label>
-                                        <textarea style="height: 220px;" type="text" class="form-control" placeholder="Medicine Description" name="description" required></textarea>
+                                        <label for="field-2" class="control-label">Hospital Description</label>
+                                        <textarea style="height: 220px;" type="text" class="form-control" placeholder="Hospital Description" name="description" required>{{ old('description') }}</textarea>
                                         @error('description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

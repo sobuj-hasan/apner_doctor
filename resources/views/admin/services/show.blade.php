@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box">
-                    <h4 class="page-title float-left">Medicine Details</h4>
+                    <h4 class="page-title float-left">Doctor Details</h4>
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="">Admin</a></li>
-                        <li class="breadcrumb-item"><a href="">Medicine Details</a></li>
+                        <li class="breadcrumb-item"><a href="">Doctor Details</a></li>
                     </ol>
 
                     <div class="clearfix"></div>
@@ -21,29 +21,35 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card-box">
-                    <h4 style="margin-top: 20px" class="m-t-0 header-title pb-3 mt-4"><b>{{ $single_service->title }}</b></h4>
+                    <h4 style="margin-top: 20px" class="m-t-0 header-title pb-3 mt-4"><b>{{ $single_service->doctor_name }}</b></h4>
                     <div class="table-responsive">
                         <table class="table m-0 table-actions-bar">
                             <tr>
-                                <th>Medicine Name</th>
-                                <td>{{ $single_service->medicine_name }}</td>
+                                <th>Doctor Name</th>
+                                <td>{{ $single_service->doctor_name }}</td>
                             </tr>
                             <tr>
                                 <th>User Name</th>
                                 <td>{{ $single_service->user->name }}</td>
                             </tr>
                             <tr>
-                                <th>Medicine Price</th>
-                                <td>{{ $single_service->price }} $</td>
+                                <th>Doctor Phone</th>
+                                <td>{{ $single_service->contact_number }}</td>
                             </tr>
                             <tr>
-                                <th>Return Policy</th>
-                                <td>{{ $single_service->return_policy }} Days</td>
+                                <th>Doctor Degree</th>
+                                <td>{{ $single_service->degree }}</td>
                             </tr>
                             <tr>
-                                <th>Medicine Description</th>
+                                <th>Doctor Education</th>
                                 <td>
-                                    {{ $single_service->description }}
+                                    {{ $single_service->education }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Current Working Hospital</th>
+                                <td>
+                                    {{ $single_service->working_hospital }}
                                 </td>
                             </tr>
                             <tr>
@@ -61,7 +67,7 @@
 @section('footer_script')
     <script>
         function OrderDelete(){
-            alert('Are you shure ? You want to delete this Order !')
+            alert('Are you shure ? You want to delete this Doctor !')
         }
     </script>
 @endsection

@@ -42,10 +42,11 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'medicine_name' => 'required',
-            'price' => 'required|integer',
-            'return_policy' => 'required|integer',
-            'description' => "required",
+            'doctor_name' => 'required',
+            'contact_number' => 'required',
+            'degree' => 'required',
+            'education' => 'required',
+            'working_hospital' => 'required',
             'image' => 'required|image',
         ]);
 
@@ -58,12 +59,12 @@ class ServiceController extends Controller
             $photo_name = time() . "." . $photo->getClientOriginalExtension($photo);
             $location = 'assets/img/' . $photo_name;
 
-            Image::make($photo)->resize(380, 310)->save($location);
+            Image::make($photo)->resize(120, 120)->save($location);
             Service::find($services->id)->update([
                 'image' => $photo_name,
             ]);
         }
-        Notify::success('Created a new Medicine !', 'Success');
+        Notify::success('Created a new Doctor Profile !', 'Success');
         return redirect()->route('service.index');
     }
 
@@ -101,10 +102,11 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'medicine_name' => 'required',
-            'price' => 'required|integer',
-            'return_policy' => 'required|integer',
-            'description' => "required",
+            'doctor_name' => 'required',
+            'contact_number' => 'required',
+            'degree' => 'required',
+            'education' => 'required',
+            'working_hospital' => 'required',
             'image' => '',
         ]);
 
@@ -119,13 +121,13 @@ class ServiceController extends Controller
             $photo_name = time() . $request->id . "." . $photo->getClientOriginalExtension($photo);
             $location = 'assets/img/' . $photo_name;
 
-            Image::make($photo)->resize(380, 310)->save($location);
+            Image::make($photo)->resize(120, 120)->save($location);
             $input['image'] = $photo_name;
         }
 
         $services->fill($input)->save();
 
-        Notify::success('Medicine Updated Successfully!');
+        Notify::success('Doctor Profile Updated Successfully!');
         return redirect()->route('service.index');
     }
 
@@ -138,7 +140,7 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         Service::where('id', $id)->first()->delete();
-        Notify::error('This Medicine Deleted', 'Deleted');
+        Notify::error('This Doctor Profile Deleted', 'Deleted');
         return back();
     }
 }

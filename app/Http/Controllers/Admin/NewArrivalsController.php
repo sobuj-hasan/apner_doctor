@@ -41,14 +41,15 @@ class NewArrivalsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'medicine_name' => 'required',
-            'price' => 'required|integer',
-            'return_policy' => 'required|integer',
+            'hospital_name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
             'description' => "required",
             'image' => 'required|image',
+            'image_two' => 'required|image',
         ]);
 
-        $services = NewArrival::create($request->except('_token', 'image') + [
+        $services = NewArrival::create($request->except('_token', 'image', 'image_two') + [
             'user_id' => Auth::user()->id,
             'status' => 1,
         ]);
@@ -57,12 +58,22 @@ class NewArrivalsController extends Controller
             $photo_name = time() . "." . $photo->getClientOriginalExtension($photo);
             $location = 'assets/img/' . $photo_name;
 
-            Image::make($photo)->resize(380, 310)->save($location);
+            Image::make($photo)->resize(600, 490)->save($location);
             NewArrival::find($services->id)->update([
                 'image' => $photo_name,
             ]);
         }
-        Notify::success('Created a new Medicine !', 'Success');
+        if ($request->hasFile('image_two')) {
+            $photo = $request->file('image_two');
+            $photo_name_two = time() . 123 . "." . $photo->getClientOriginalExtension($photo);
+            $location = 'assets/img/' . $photo_name_two;
+
+            Image::make($photo)->resize(600, 490)->save($location);
+            NewArrival::find($services->id)->update([
+                'image_two' => $photo_name_two,
+            ]);
+        }
+        Notify::success('Created a new Hospital !', 'Success');
         return redirect()->route('newarrivals.index');
     }
 
@@ -100,15 +111,16 @@ class NewArrivalsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'medicine_name' => 'required',
-            'price' => 'required|integer',
-            'return_policy' => 'required|integer',
+            'hospital_name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
             'description' => "required",
             'image' => '',
+            'image_two' => '',
         ]);
 
         $services = NewArrival::find($id);
-        $input = $request->except('_token', 'image', '_method');
+        $input = $request->except('_token', 'image', 'image_two', '_method');
 
         if ($request->hasFile('image')) {
             if ($services->image) {
@@ -122,9 +134,21 @@ class NewArrivalsController extends Controller
             $input['image'] = $photo_name;
         }
 
+        if ($request->hasFile('image_two')) {
+            if ($services->image) {
+                unlink('assets/img/' . $services->image);
+            }
+            $photo = $request->file('image_two');
+            $photo_name = time() . $request->id . 123 . "." . $photo->getClientOriginalExtension($photo);
+            $location = 'assets/img/' . $photo_name;
+
+            Image::make($photo)->resize(600, 590)->save($location);
+            $input['image_two'] = $photo_name;
+        }
+
         $services->fill($input)->save();
 
-        Notify::success('Medicine Updated Successfully!');
+        Notify::success('Hospital Updated Successfully!');
         return redirect()->route('newarrivals.index');
     }
 

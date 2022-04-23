@@ -10,11 +10,12 @@ class NewArrival extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'medicine_name',
-        'price',
-        'return_policy',
-        'description',
+        'hospital_name',
+        'phone',
+        'address',
         'image',
+        'image_two',
+        'description',
         'status',
     ];
 
