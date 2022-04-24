@@ -15,11 +15,10 @@ class CreateContactFormSubmitsTable extends Migration
     {
         Schema::create('contact_form_submits', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->string('phone');
-            $table->longText('message');
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->longText('message')->nullable();
             $table->timestamps();
         });
     }

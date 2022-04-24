@@ -15,7 +15,8 @@ Route::get('/dashboard', function () {
     Route::get('aboutus', [FrontendController::class, 'aboutus'])->name('aboutus');
     // Route::get('contactus', [FrontendController::class, 'contactus'])->name('contactus');
     Route::get('hospital/service', [FrontendController::class, 'hospital_service'])->name('hospital.service');
-    Route::get('form/submit', [FrontendController::class, 'form_submit'])->name('form.submit');
+    Route::post('form/submit', [FrontendController::class, 'form_submit'])->name('form.submit');
+    Route::get('search/result', [FrontendController::class, 'search_result'])->name('search.result');
 
 
     Route::resources([
@@ -65,7 +66,7 @@ Route::get('/dashboard', function () {
             // 'blogcategories' => 'BlogCategoryController',
             // 'blogs' => 'BlogController',
             // 'admin/subscriber' => 'SubscribeController',
-            // 'admin/visitor/querstion' => 'VisitorQueryController',
+            'admin/visitor/querstion' => 'VisitorQueryController',
             // 'properties' => 'PropertyController',
             // 'consultant/request' => 'RentConsultantController',
         ]);

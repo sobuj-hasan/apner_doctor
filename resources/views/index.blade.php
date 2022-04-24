@@ -34,25 +34,40 @@
                </nav>
                </div>
                <div class="sbox">
-               <div class="popup" id="popup-1">
-                  <div class="overlay"></div>
-                  <div class="content">
-                     <div class="close-btn" onclick="togglepopup()">&times;</div>
-                     <h1>You Can Send Your Message here</h1>
-                     <label for="">Your Name</label>
-                     <input type="text" placeholder="Enter Your Name">
-                     <label for="">Mobile Number</label>
-                     <input type="text" placeholder="Enter Mobile Number">
-                     <label for="">Mail</label>
-                     <input type="text" placeholder="Enter Your Name">
-                     <label for="">Your Message</label>
-                     <textarea name="" id="" cols="30" rows="10" placeholder="Enter Your Message Here"></textarea>
-                     <button>Send</button>
-                  </div>
-               </div>
-               <button onclick="togglepopup()">
-                  <h3>CONTACT</h3>
-               </button>
+                  <form method="POST" action="{{ route('form.submit') }}">
+                     @csrf
+                     <div class="popup" id="popup-1">
+                        <div class="overlay"></div>
+                        <div class="content">
+                           <div class="close-btn" onclick="togglepopup()">&times;</div>
+                           <h1>You Can Send Your Message here</h1>
+                           <label for="">Your Name</label>
+                           <input type="text" placeholder="Enter Your Name" name="name" required>
+                           @error('name')
+                              <span class="text-danger">{{ $message }}</span>
+                           @enderror
+                           <label for="">Mobile Number</label>
+                           <input type="text" placeholder="Enter Mobile Number" name="phone" required>
+                           @error('phone')
+                              <span class="text-danger">{{ $message }}</span>
+                           @enderror
+                           <label for="">Mail</label>
+                           <input type="text" placeholder="Enter Your Name" name="email" required>
+                           @error('email')
+                              <span class="text-danger">{{ $message }}</span>
+                           @enderror
+                           <label for="">Your Message</label>
+                           <textarea style="width: 100%;" id="" cols="30" rows="10" placeholder="Enter Your Message Here" name="message"></textarea>
+                           @error('message')
+                              <span class="text-danger">{{ $message }}</span>
+                           @enderror
+                           <button type="submit">Send</button>
+                        </div>
+                     </div>
+                  </form>
+                  <button onclick="togglepopup()">
+                     <h3>CONTACT</h3>
+                  </button>
                </div>
             </div>
          </div>
@@ -133,40 +148,21 @@
          <div class="container">
          <div class="row">
             <h2>HOSPITAL</h2>
-            <div class="col-lg-12 col-sm-6">
-               <div class="sec-5-box">
-               <div class="sec-5imgdgn d-flex">
-                  <img src="img/hospital/hos1.png" alt="">
-                  <img src="img/hospital/h2.jpg" alt="">
+            @foreach ($hospitals as $hospital)
+               <div class="col-lg-12 col-sm-6">
+                  <div class="sec-5-box">
+                  <div class="sec-5imgdgn d-flex">
+                     <img src="{{ asset('assets/img') }}/{{ $hospital->image }}" alt="">
+                     <img src="{{ asset('assets/img') }}/{{ $hospital->image_two }}" alt="">
+                  </div>
+                  <h3><span>Hospital Name:</span> {{ $hospital->hospital_name }}</h3>
+                  <h3><span>Phone-Number:</span> {{ $hospital->phone }}</h3>
+                  <h3><span>Hospital Address:</span> {{ $hospital->address }}</h3>
+                  >
+                  <p><span>Hospital Details:</span>{{ $hospital->description }}</p>
+                  </div>
                </div>
-               <h3><span>Hospital Name:</span> Demo Hospital</h3>
-               <h3><span>Phone-Number:</span> Demo123456789</h3>
-               <h3><span>Hospital Address:</span> Demo Location</h3>
-               >
-               <p><span>Hospital Details:</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, enim?
-                  Quis, repellat architecto! Praesentium consequuntur reiciendis dicta aliquid est. Impedit consectetur
-                  esse veritatis facilis iste excepturi architecto deserunt reprehenderit temporibus nemo! Dolore magni
-                  mollitia nemo, recusandae eaque, molestias quo incidunt assumenda expedita corporis nulla! Fuga delectus
-                  mollitia natus architecto ea. </p>
-               </div>
-            </div>
-            <div class="col-lg-12 col-sm-6">
-               <div class="sec-5-box">
-               <div class="sec-5imgdgn d-flex">
-                  <img src="img/hospital/hos1.png" alt="">
-                  <img src="img/hospital/h2.jpg" alt="">
-               </div>
-               <h3><span>Hospital Name:</span> Demo Hospital</h3>
-               <h3><span>Phone-Number:</span> Demo123456789</h3>
-               <h3><span>Hospital Address:</span> Demo Location</h3>
-               >
-               <p><span>Hospital Details:</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, enim?
-                  Quis, repellat architecto! Praesentium consequuntur reiciendis dicta aliquid est. Impedit consectetur
-                  esse veritatis facilis iste excepturi architecto deserunt reprehenderit temporibus nemo! Dolore magni
-                  mollitia nemo, recusandae eaque, molestias quo incidunt assumenda expedita corporis nulla! Fuga delectus
-                  mollitia natus architecto ea. </p>
-               </div>
-            </div>
+            @endforeach
          </div>
          </div>
       </div>
@@ -176,54 +172,20 @@
          <div class="container">
          <div class="row">
             <h2>DOCTOR</h2>
-            <div class="col-lg-6 col-sm-6">
-               <div class="srvcbox">
-               <div class="s6imgdesign d-flex">
-                  <img src="img/doctor/d1.png" alt="">
+            @foreach ($doctors as $doctor)
+               <div class="col-lg-6 col-sm-6">
+                  <div class="srvcbox">
+                  <div class="s6imgdesign d-flex">
+                     <img src="{{ asset('assets/img') }}/{{ $doctor->image }}" alt="">
+                  </div>
+                  <h3>{{ $doctor->doctor_name }}</h3>
+                  <h5>Contact Number: {{ $doctor->contact_number }}</h5>
+                  <p>{{ $doctor->degree }}</p>
+                  <h5>{{ $doctor->education }}</h5>
+                  <p>{{ $doctor->working_hospital }}</p>
+                  </div>
                </div>
-               <h3>Nutritionist Aysha Siddika</h3>
-               <h5>Contact Number: demo123456789</h5>
-               <p>BSc & MSc (Food & Nutrition, DU)</p>
-               <h5>Nutritionist (Food, Diet, Weight Management) & Dietitian</h5>
-               <p>Japan Bangladesh Friendship Hospital</p>
-               </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-               <div class="srvcbox">
-               <div class="s6imgdesign d-flex">
-                  <img src="img/doctor/d2.png" alt="">
-               </div>
-               <h3>Nutritionist Aysha Siddika</h3>
-               <h5>Contact Number: demo123456789</h5>
-               <p>BSc & MSc (Food & Nutrition, DU)</p>
-               <h5>Nutritionist (Food, Diet, Weight Management) & Dietitian</h5>
-               <p>Japan Bangladesh Friendship Hospital</p>
-               </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-               <div class="srvcbox">
-               <div class="s6imgdesign d-flex">
-                  <img src="img/doctor/d3.png" alt="">
-               </div>
-               <h3>Nutritionist Aysha Siddika</h3>
-               <h5>Contact Number: demo123456789</h5>
-               <p>BSc & MSc (Food & Nutrition, DU)</p>
-               <h5>Nutritionist (Food, Diet, Weight Management) & Dietitian</h5>
-               <p>Japan Bangladesh Friendship Hospital</p>
-               </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-               <div class="srvcbox">
-               <div class="s6imgdesign d-flex">
-                  <img src="img/doctor/d4.png" alt="">
-               </div>
-               <h3>Nutritionist Aysha Siddika</h3>
-               <h5>Contact Number: demo123456789</h5>
-               <p>BSc & MSc (Food & Nutrition, DU)</p>
-               <h5>Nutritionist (Food, Diet, Weight Management) & Dietitian</h5>
-               <p>Japan Bangladesh Friendship Hospital</p>
-               </div>
-            </div>
+            @endforeach
          </div>
          </div>
          <!-- sec-6 end -->

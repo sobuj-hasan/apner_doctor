@@ -40,40 +40,21 @@
       <div class="container">
         <div class="row">
           <h2>HOSPITAL</h2>
-          <div class="col-lg-12 col-sm-6">
-            <div class="sec-5-box">
-              <div class="sec-5imgdgn d-flex">
-                <img src="{{ asset('img/hospital/hos1.png') }}" alt="">
-                <img src="{{ asset('img/hospital/h2.jpg') }}" alt="">
-              </div>
-              <h3><span>Hospital Name:</span> Demo Hospital</h3>
-              <h3><span>Phone-Number:</span> Demo123456789</h3>
-              <h3><span>Hospital Address:</span> Demo Location</h3>
-              >
-              <p><span>Hospital Details:</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, enim?
-                Quis, repellat architecto! Praesentium consequuntur reiciendis dicta aliquid est. Impedit consectetur
-                esse veritatis facilis iste excepturi architecto deserunt reprehenderit temporibus nemo! Dolore magni
-                mollitia nemo, recusandae eaque, molestias quo incidunt assumenda expedita corporis nulla! Fuga delectus
-                mollitia natus architecto ea. </p>
-            </div>
-          </div>
-          <div class="col-lg-12 col-sm-6">
-            <div class="sec-5-box">
-              <div class="sec-5imgdgn d-flex">
-                <img src="{{ asset('img/hospital/hos1.png') }}" alt="">
-                <img src="{{ asset('img/hospital/h2.jpg') }}" alt="">
-              </div>
-              <h3><span>Hospital Name:</span> Demo Hospital</h3>
-              <h3><span>Phone-Number:</span> Demo123456789</h3>
-              <h3><span>Hospital Address:</span> Demo Location</h3>
-              >
-              <p><span>Hospital Details:</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, enim?
-                Quis, repellat architecto! Praesentium consequuntur reiciendis dicta aliquid est. Impedit consectetur
-                esse veritatis facilis iste excepturi architecto deserunt reprehenderit temporibus nemo! Dolore magni
-                mollitia nemo, recusandae eaque, molestias quo incidunt assumenda expedita corporis nulla! Fuga delectus
-                mollitia natus architecto ea. </p>
-            </div>
-          </div>
+          @foreach ($hospitals as $hospital)
+               <div class="col-lg-12 col-sm-6">
+                  <div class="sec-5-box">
+                  <div class="sec-5imgdgn d-flex">
+                     <img src="{{ asset('assets/img') }}/{{ $hospital->image }}" alt="">
+                     <img src="{{ asset('assets/img') }}/{{ $hospital->image_two }}" alt="">
+                  </div>
+                  <h3><span>Hospital Name:</span> {{ $hospital->hospital_name }}</h3>
+                  <h3><span>Phone-Number:</span> {{ $hospital->phone }}</h3>
+                  <h3><span>Hospital Address:</span> {{ $hospital->address }}</h3>
+                  >
+                  <p><span>Hospital Details:</span>{{ $hospital->description }}</p>
+                  </div>
+               </div>
+            @endforeach
         </div>
       </div>
     </div>

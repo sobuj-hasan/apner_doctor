@@ -10,8 +10,7 @@ class ContactFormSubmit extends Model
     use HasFactory;
 
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'name',
         'email',
         'phone',
         'message',

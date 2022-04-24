@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Auth;
 class FrontendController extends Controller
 {
     public function index(){
-        return view('index');
+        $data['hospitals'] = NewArrival::where('status', 1)->get();
+        
+        $data['doctors'] = Service::where('status', 1)->get();
+        return view('index', $data);
     }
-
+    
     public function our_doctor(){
-        $data['products'] = Service::where('status', 1)->inRandomOrder()->limit(80)->get();
+        $data['doctors'] = Service::where('status', 1)->get();
         return view('our_doctors', $data);
     }
 
@@ -35,11 +38,25 @@ class FrontendController extends Controller
     }
 
     public function hospital_service(){
-        return view('our_service');
+        $data['hospitals'] = NewArrival::where('status', 1)->get();
+        return view('our_service', $data);
     }
 
-    public function form_submit(){
-        return view('form_submit');
+    public function search_result(){
+        $data['doctors'] = Service::where('status', 1)->get();
+        return view('search_result', $data);
+    }
+
+    public function form_submit(Request $request){
+        $request->validate([
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'message' => 'required',
+        ]);
+        ContactFormSubmit::create($request->all());
+        Notify::success('Message Successfully Submited', 'Success');
+        return back();
     }
 
 

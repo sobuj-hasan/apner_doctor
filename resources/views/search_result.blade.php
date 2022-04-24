@@ -75,37 +75,6 @@
     </div>
   </div>
   <!-- sector end -->
-  <!-- sec-2 start -->
-  <div class="sec-2">
-    <div class="row">
-      <div class="col-lg-12">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="{{ asset('img/Sliderbnr/bnr-1.png') }}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="{{ asset('img/Sliderbnr/bnr2.png') }}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="{{ asset('img/Sliderbnr/bnr3.png') }}" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- sec-2 end -->
   <!-- bdyclrdesign -->
   <div class="bdyclrdesign">
     <!-- bdyclrdesign -->
@@ -115,19 +84,19 @@
         <div class="row">
           <h2>DOCTOR</h2>
           @foreach ($doctors as $doctor)
-               <div class="col-lg-6 col-sm-6">
-                  <div class="srvcbox">
-                  <div class="s6imgdesign d-flex">
-                     <img src="{{ asset('assets/img') }}/{{ $doctor->image }}" alt="">
-                  </div>
-                  <h3>{{ $doctor->doctor_name }}</h3>
-                  <h5>Contact Number: {{ $doctor->contact_number }}</h5>
-                  <p>{{ $doctor->degree }}</p>
-                  <h5>{{ $doctor->education }}</h5>
-                  <p>{{ $doctor->working_hospital }}</p>
-                  </div>
-               </div>
-            @endforeach
+            <div class="col-lg-6 col-sm-6">
+                <div class="srvcbox">
+                <div class="s6imgdesign d-flex">
+                    <img src="{{ asset('assets/img') }}/{{ $doctor->image }}" alt="">
+                </div>
+                <h3>{{ $doctor->doctor_name }}</h3>
+                <h5>Contact Number: {{ $doctor->contact_number }}</h5>
+                <p>{{ $doctor->degree }}</p>
+                <h5>{{ $doctor->education }}</h5>
+                <p>{{ $doctor->working_hospital }}</p>
+                </div>
+            </div>
+        @endforeach
 @endsection
 
 

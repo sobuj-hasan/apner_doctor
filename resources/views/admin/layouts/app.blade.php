@@ -161,13 +161,13 @@
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="{{ route('request.index') }}">Rental Consultancy</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="javascript: void(0);"><i class="far fa-question-circle"></i> <span> Visitor queries </span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="{{ route('querstion.index') }}">View All</a></li>
                                 </ul>
-                            </li> --}}
+                            </li>
                             <li>
                                 <a href="javascript: void(0);"><i class="fas fa-chevron-circle-left"></i> <span> Back Website</span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
