@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Consultant;
 use App\Models\ContactFormSubmit;
+use App\Models\NewArrival;
 use App\Models\Property;
 use App\Models\Service;
 
@@ -16,7 +17,8 @@ class DashboardController extends Controller
 {
     public function index(){
         $data['users'] = User::count();
-        $data['services'] = Service::count();
+        $data['doctors'] = Service::count();
+        $data['services'] = NewArrival::count();
         $data['properties'] = Property::count();
         $data['visitor_quires'] = ContactFormSubmit::count();
         $data['consultant'] = Consultant::count();
