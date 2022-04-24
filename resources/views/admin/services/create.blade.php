@@ -40,6 +40,21 @@
 
                                 <div class="col-md-6 my-2">
                                     <div class="form-group">
+                                        <label for="field-2" class="control-label">Select Category</label>
+                                        <select class="form-control" name="category_id">
+                                            <option value="">Select Doctor Category</option>
+                                            @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('category_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 my-2">
+                                    <div class="form-group">
                                         <label for="field-2" class="control-label">Contact Number</label>
                                         <input type="text" class="form-control" id="field-2" placeholder="contact number" name="contact_number" value="{{ old('contact_number'); }}" required>
                                         @error('contact_number')

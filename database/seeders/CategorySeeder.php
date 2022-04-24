@@ -15,34 +15,31 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'Appartment',
+            'name' => 'Anesthesiologists',
         ]);
         Category::create([
-            'name' => 'Room',
+            'name' => 'Cardiologists',
         ]);
         Category::create([
-            'name' => 'Sublet',
+            'name' => 'Colon and Rectal Surgeons',
         ]);
         Category::create([
-            'name' => 'PentHouse',
+            'name' => 'Critical Care Medicine Specialists',
         ]);
         Category::create([
-            'name' => 'Duplex',
+            'name' => 'Dermatologists',
         ]);
         Category::create([
-            'name' => 'Building',
+            'name' => 'Endocrinologists',
         ]);
         Category::create([
-            'name' => 'Office',
+            'name' => 'Gastroenterologists',
         ]);
         Category::create([
-            'name' => 'Shop',
+            'name' => 'Hematologists',
         ]);
         Category::create([
-            'name' => 'WareHouse',
-        ]);
-        Category::create([
-            'name' => 'Industrial',
+            'name' => 'Internists',
         ]);
     }
 }

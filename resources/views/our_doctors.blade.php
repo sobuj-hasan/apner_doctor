@@ -6,33 +6,28 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+          <form method="GET" action="{{ route('search.result') }}">
           <div class="sectorbox d-flex">
-            <div class="sbox">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  Location
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Dhaka</a></li>
-                  <li><a class="dropdown-item" href="#">Cumilla</a></li>
-                  <li><a class="dropdown-item" href="#">Sylhet</a></li>
-                  <li><a class="dropdown-item" href="#">Dhaka</a></li>
-                  <li><a class="dropdown-item" href="#">Cumilla</a></li>
-                  <li><a class="dropdown-item" href="#">Sylhet</a></li>
-                </ul>
+              @csrf
+              <div class="sbox">
+                  <select class="form-select mt-1 fw-bold" aria-label="Default select example" name="category_id">
+                    <option selected>Select Doctor Category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                  </select>
               </div>
-            </div>
-            <div class="sbox">
-              <nav class="navbar navbar-light">
-                <div class="container-fluid">
-                  <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-                </div>
-              </nav>
-            </div>
+              <div class="sbox">
+                  <nav class="navbar navbar-light">
+                    <div class="container-fluid">
+                        <div class="d-flex">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="given_data">
+                          <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                  </nav>
+              </div>
+            </form>
             <div class="sbox">
               <form method="POST" action="{{ route('form.submit') }}">
                   @csrf

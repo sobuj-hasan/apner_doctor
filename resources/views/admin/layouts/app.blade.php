@@ -121,15 +121,15 @@
                                     <i class="fi-air-play"></i>  <span> Dashboard </span>
                                 </a>
                             </li>
-                            {{-- <li>
-                                <a href="javascript: void(0);"><i class="fas fa-sitemap"></i> <span>Property Category </span> <span class="menu-arrow"></span></a>
+                            <li>
+                                <a href="javascript: void(0);"><i class="fas fa-sitemap"></i> <span>Doctor Category </span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="{{ route('categories.create') }}">Add New</a></li>
                                     <li><a href="{{ route('categories.index') }}">View All</a></li>
                                 </ul>
                             </li>
 
-                            <li>
+                            {{-- <li>
                                 <a href="javascript: void(0);"><i class="fa-solid fa-house-chimney"></i> <span>Our Properties</span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="{{ route('properties.index') }}">View All</a></li>
