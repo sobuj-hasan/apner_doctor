@@ -10,8 +10,8 @@ a{
 }
 
 
-.sec-1{
-    padding: 50px 0px;
+.sec-1 {
+  padding: 0px 0px;
 }
 
 @media (max-width: 578px) {
@@ -902,9 +902,9 @@ padding: 50px;
   }
 }
 
-.sbox button{
- background-color: #05479e;
- color: white;
+.sbox button {
+  background-color: #05479e;
+  color: white;
 }
 
 /* popup */
@@ -955,12 +955,12 @@ padding: 50px;
   display: none;
 }
 
-.popup .content{
+.popup .content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  background: green;
+  background: #b4eed5;
   width: 450px;
   height: 220px;
   z-index: 2;

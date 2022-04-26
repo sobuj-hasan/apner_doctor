@@ -28,10 +28,11 @@
                                 <tr>
                                     <th>SI NO.</th>
                                     <th>Name </th>
+                                    <th>Company Name</th>
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Message</th>
-                                    <th>Sending Time</th>
+                                    {{-- <th>Sending Time</th> --}}
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -44,6 +45,9 @@
 
                                         <td>
                                             <p>{{ $query->name }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ $query->company_name }}</p>
                                         </td>
 
                                         <td>
@@ -58,9 +62,9 @@
                                             <p>{{ $query->message }}</p>
                                         </td>
 
-                                        <td>
+                                        {{-- <td>
                                             <p class="m-b-0 m-t-0 font-600">{{ $query->created_at->diffForHumans() }}</p>
-                                        </td>
+                                        </td> --}}
                                             <form method="POST" action="{{ route('querstion.destroy', $query->id) }}">
                                                 @csrf
                                                 @method('DELETE')

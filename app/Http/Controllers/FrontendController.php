@@ -66,6 +66,7 @@ class FrontendController extends Controller
     public function form_submit(Request $request){
         $request->validate([
             'name' => 'required|min:2',
+            'company_name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
             'message' => 'required',

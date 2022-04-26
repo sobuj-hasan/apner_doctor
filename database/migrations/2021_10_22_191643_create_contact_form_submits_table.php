@@ -16,6 +16,7 @@ class CreateContactFormSubmitsTable extends Migration
         Schema::create('contact_form_submits', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->string('company_name')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->longText('message')->nullable();

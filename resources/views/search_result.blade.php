@@ -41,6 +41,11 @@
                         @error('name')
                           <span class="text-danger">{{ $message }}</span>
                         @enderror
+                        <label for="">Your Company Name</label>
+                        <input type="text" placeholder="Your Company Name" name="company_name" required>
+                        @error('company_name')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                         <label for="">Mobile Number</label>
                         <input type="text" placeholder="Enter Mobile Number" name="phone" required>
                         @error('phone')
@@ -60,7 +65,7 @@
                     </div>
                   </div>
               </form>
-              <button onclick="togglepopup()">
+              <button type="button" onclick="togglepopup()">
                   <h3>CONTACT</h3>
               </button>
             </div>

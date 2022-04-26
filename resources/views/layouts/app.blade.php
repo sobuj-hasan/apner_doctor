@@ -93,7 +93,7 @@
       <!--  marque design end -->
       <!-- footer end -->
       <div class="lst">
-        <h6>Developed By Mohammad Nayem. Mail: mk5316222@gmail.com </h6>
+        <h6>All right reserved @apnardoctor22.com</h6>
       </div>
       <!-- bdyclrdesign end -->
     </div>
